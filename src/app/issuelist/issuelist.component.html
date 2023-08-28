@@ -1,0 +1,113 @@
+
+
+
+
+<h2 class="mt-2 text-center text-warning" style="padding-top: 1%;"> Issues tracker</h2>
+
+
+
+<div class="text-center" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4">
+          <div class="mt-2">
+            <input type="text" class="form-control" [(ngModel)]="issue.title" placeholder="Title">
+          </div>
+  
+          <div class="mt-2">
+            <input type="text" class="form-control" [(ngModel)]="issue.description" placeholder="description">
+          </div>
+  
+          <div class="mt-2">
+            <button class="btn btn-primary" (click)="addIssue()" style="margin: 1%;">Submit</button>
+            <button class="btn btn-secondary" (click)="updatetodbIssue()" style="margin: 1%;">Update</button>
+            <button class="btn btn-secondary" (click)="clear()" style="margin: 1%;">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+<div class="card-list" style="padding-top: 5%;">
+    <div class="card" *ngFor="let issue of issues" [ngClass]="{'updated-card': issue.isCompleted}">
+      <div class="card-header">
+        {{ issue.title }} 
+      </div>
+      <div class="card-body">
+        <p>Description: {{ issue.description }}</p>
+
+        <!-- Other contact details as needed -->
+        <div class="button-container">
+          <button (click)="deleteIssue(issue.id)" class="delete-button">Delete</button>
+          <button class="update-button" (click)="updateIssue(issue)">Update</button>
+        </div>
+        
+        <div class="form-check" style="padding: 5%;">
+  <input class="form-check-input" type="checkbox" [checked]="issue.isCompleted" (change)="handleCheckboxChange($event, issue)" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    Mark as completed
+  </label>
+</div>
+
+          
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <h2 class="mt-2 text-center text-danger">Unresolved Issues</h2>
+
+
+  <div class="list-group">
+    <a href="#" class="list-group-item" *ngFor="  let unresolvedIssue of unresolvedIssues">
+
+
+        <h3>
+            {{ unresolvedIssue.title }}:
+            <small class="text-muted"> {{ unresolvedIssue.description }}</small>
+          </h3>
+
+
+     
+    </a>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+  <h2 class="mt-2 text-center text-success">Fixed Issues</h2>
+
+
+  <div class="list-group">
+    <a href="#" class="list-group-item" *ngFor="let completedIssue of completedIssues">
+
+
+        <h3>
+            {{ completedIssue.title }}:
+            <small class="text-muted"> {{ completedIssue.description }}</small>
+          </h3>
+
+
+     
+    </a>
+  </div>
+  
+  
+
+  

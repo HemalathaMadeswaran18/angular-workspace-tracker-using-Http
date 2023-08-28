@@ -1,0 +1,22 @@
+{
+  "issues": [
+    {
+      "title": "Index.html ",
+      "description": "bootstrap not loading correctly",
+      "isCompleted": true,
+      "id": 1
+    },
+    {
+      "title": "app.component.html",
+      "description": "components not called correctly",
+      "isCompleted": false,
+      "id": 2
+    },
+    {
+      "title": "app.module.ts",
+      "description": "formsmodule not imported",
+      "isCompleted": false,
+      "id": 3
+    }
+  ]
+}
